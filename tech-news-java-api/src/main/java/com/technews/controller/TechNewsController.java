@@ -32,6 +32,7 @@ public class TechNewsController {
 
     @Autowired
     CommentRepository commentRepository;
+
     @PostMapping("/users/login")
     public String login(@ModelAttribute User user, Model model, HttpServletRequest request) throws Exception {
 
@@ -64,6 +65,7 @@ public class TechNewsController {
 
         return "redirect:/dashboard";
     }
+
     @PostMapping("/users")
     public String signup(@ModelAttribute User user, Model model, HttpServletRequest request) throws Exception {
 
@@ -97,6 +99,7 @@ public class TechNewsController {
 
         return "redirect:/dashboard";
     }
+
     @PostMapping("/posts")
     public String addPostDashboardPage(@ModelAttribute Post post, Model model, HttpServletRequest request) {
 
@@ -113,8 +116,8 @@ public class TechNewsController {
 
             return "redirect:/dashboard";
         }
-
     }
+
     @PostMapping("/posts/{id}")
     public String updatePostDashboardPage(@PathVariable int id, @ModelAttribute Post post, Model model, HttpServletRequest request) {
 
@@ -146,6 +149,7 @@ public class TechNewsController {
             }
         }
     }
+
     @PostMapping("/comments/edit")
     public String createCommentEditPage(@ModelAttribute Comment comment, HttpServletRequest request) {
 
@@ -178,9 +182,5 @@ public class TechNewsController {
             returnPost.setVoteCount(voteRepository.countVotesByPostId(vote.getPostId()));
         }
     }
-
-
-
-
 
 }
